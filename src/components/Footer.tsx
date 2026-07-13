@@ -13,7 +13,7 @@ export default function Footer() {
             <span className="text-gradient font-bold">{profile.name}</span>
           </p>
           <p className="mt-1 text-xs text-muted">
-            © {year} · Built with Next.js & Tailwind CSS
+            © {year} · All rights reserved.
           </p>
         </div>
 
