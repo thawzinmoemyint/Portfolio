@@ -1,7 +1,7 @@
 // Single source of truth for all portfolio content.
 // Derived from Thaw Zin Moe Myint's SWE + Data Science resumes.
 
-export const siteUrl = "https://thawzinmoemyintdev.vercel.app/";
+export const siteUrl = "https://thawzinmoemyint.dev";
 
 export const profile = {
   name: "Thaw Zin Moe Myint",
