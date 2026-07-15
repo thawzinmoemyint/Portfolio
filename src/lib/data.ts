@@ -14,8 +14,8 @@ export const profile = {
 };
 
 export const socials = {
-  github: "https://github.com/thompson129",
-  linkedin: "https://linkedin.com/in/thawzinmoemyint129",
+  github: "https://github.com/thawzinmoemyint",
+  linkedin: "https://linkedin.com/in/thawzinmoemyint",
   kaggle: "https://kaggle.com/thawzinmoemyint",
   email: "mailto:thawzinmoemyint.dev@gmail.com",
 };
