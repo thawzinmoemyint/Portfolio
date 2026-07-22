@@ -257,7 +257,7 @@ export const awards: Award[] = [
     description:
       "Ranked in the global top 3% (47th of 1,727 teams) forecasting NCAA tournament outcomes with advanced ensemble techniques.",
     icon: "medal",
-    href: "https://www.kaggle.com/competitions/march-machine-learning-mania-2025",
+    href: "https://www.kaggle.com/certification/competitions/thawzinmoemyint/march-machine-learning-mania-2025",
   },
 ];
 
