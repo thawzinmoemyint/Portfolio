@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-:root {
+:root,
+[data-theme="dark"] {
   --background: #0a0a0a;
   --surface: #111114;
   --surface-2: #16161a;
@@ -8,10 +9,24 @@
   --foreground: #ededed;
   --muted: #a1a1aa;
 
-  /* Gradient accent stops: violet -> fuchsia -> cyan */
-  --grad-1: #7c3aed;
-  --grad-2: #d946ef;
-  --grad-3: #22d3ee;
+  /* Gradient accent stops: orange -> amber -> yellow */
+  --grad-1: #f97316;
+  --grad-2: #f59e0b;
+  --grad-3: #fde047;
+}
+
+[data-theme="light"] {
+  --background: #ffffff;
+  --surface: #f6f6f8;
+  --surface-2: #ececef;
+  --border: #e2e2e6;
+  --foreground: #0a0a0a;
+  --muted: #52525b;
+
+  /* Slightly deeper stops so the yellow gradient keeps contrast on white */
+  --grad-1: #ea580c;
+  --grad-2: #d97706;
+  --grad-3: #ca8a04;
 }
 
 @theme inline {
