@@ -127,7 +127,7 @@ export const projects: Project[] = [
     highlight: "🏆 1st Place — International AI Hackathon 2025",
     links: [
       { label: "Press Release", href: "https://sit.kmutt.ac.th/ai-hackathon-2025/" },
-      {label: "GitHub", href: "https://github.com/thompson129/GodViewAI" },
+      {label: "GitHub", href: "https://github.com/thawzinmoemyint/GodViewAI" },
     ],
   },
   {
@@ -137,7 +137,7 @@ export const projects: Project[] = [
       "Engineered an end-to-end ML pipeline with 15+ custom features and automated preprocessing. Built a stacked ensemble using Optuna for hyperparameter tuning across XGBoost and ElasticNet.",
     tags: ["AI/ML"],
     tech: ["Python", "XGBoost", "LightGBM", "Optuna", "Scikit-learn"],
-    links: [{ label: "GitHub", href: "https://github.com/thompson129/Advanced-Regression-House-Prices" }],
+    links: [{ label: "GitHub", href: "https://github.com/thawzinmoemyint/Advanced-Regression-House-Prices" }],
   },
   {
     title: "Bend It Right",
@@ -146,7 +146,7 @@ export const projects: Project[] = [
       "Real-time AI workout monitoring system using a fine-tuned YOLOv11 pose model. Curated and trained on custom annotated datasets to ensure high accuracy in pose estimation.",
     tags: ["AI/ML"],
     tech: ["Python", "PyTorch", "YOLOv11", "Tkinter"],
-    links: [{ label: "GitHub", href: "https://github.com/thompson129/Bend-It-Right" }],
+    links: [{ label: "GitHub", href: "https://github.com/thawzinmoemyint/Bend-It-Right" }],
   },
   {
     title: "Doodle Education",
@@ -191,7 +191,7 @@ export const projects: Project[] = [
       "Modular mobile application that lets users log reading habits and set goals. Integrated the Google Books API for real-time book data and Hive for efficient local persistence.",
     tags: ["Mobile"],
     tech: ["Flutter", "Hive", "Firebase", "Google Books API"],
-    links: [{ label: "GitHub", href: "https://github.com/thompson129/libro_tracker" }],
+    links: [{ label: "GitHub", href: "https://github.com/thawzinmoemyint/libro_tracker" }],
   },
 ];
 
