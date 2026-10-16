@@ -1,86 +1,69 @@
-import { ExternalLink } from "lucide-react";
-import { experiences } from "@/lib/data";
+import { ArrowRight } from "lucide-react";
+import { experiences, resumes } from "@/lib/data";
+import { Badge } from "@/components/ui/badge";
 import SectionHeading from "./ui/SectionHeading";
+import HoverRow, { RowLink } from "./ui/HoverRow";
 import Reveal from "./ui/Reveal";
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          eyebrow="02 — Experience"
-          title="Where I've worked"
-          description="Building products in the field — from commercial web apps to research data analysis."
-        />
+    <section
+      id="experience"
+      aria-label="Work experience"
+      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-32 lg:scroll-mt-24"
+    >
+      <SectionHeading title="Experience" />
 
-        <div className="relative border-l border-border pl-6 sm:pl-10">
-          {experiences.map((exp, i) => (
-            <Reveal
-              key={`${exp.company}-${i}`}
-              delay={i * 80}
-              className="relative pb-12 last:pb-0"
-            >
-              {/* timeline dot */}
-              <span className="absolute -left-[31px] top-1.5 flex h-4 w-4 items-center justify-center sm:-left-[47px]">
-                <span className="h-3 w-3 rounded-full bg-gradient-accent ring-4 ring-background" />
-              </span>
-
-              <div className="gradient-border rounded-2xl p-6">
-                <div className="relative z-10">
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {exp.role}
-                    </h3>
-                    <span className="font-mono text-xs text-muted">
-                      {exp.period}
+      <ol className="group/list space-y-12">
+        {experiences.map((exp, i) => (
+          <li key={`${exp.company}-${i}`}>
+            <Reveal delay={i * 60}>
+              <HoverRow aside={exp.period}>
+                <h3>
+                  {exp.companyUrl ? (
+                    <RowLink href={exp.companyUrl}>
+                      {exp.role} · {exp.company}
+                    </RowLink>
+                  ) : (
+                    <span className="font-medium leading-tight text-foreground">
+                      {exp.role} · {exp.company}
                     </span>
-                  </div>
+                  )}
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {exp.location}
+                </p>
 
-                  <p className="mt-1 flex items-center gap-2 text-sm font-medium text-grad-2">
-                    {exp.companyUrl ? (
-                      <a
-                        href={exp.companyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 hover:underline"
-                      >
-                        {exp.company}
-                        <ExternalLink size={13} />
-                      </a>
-                    ) : (
-                      exp.company
-                    )}
-                    <span className="text-muted">· {exp.location}</span>
-                  </p>
+                <ul className="mt-3 list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-muted-foreground marker:text-grad-2">
+                  {exp.bullets.map((b, j) => (
+                    <li key={j}>{b}</li>
+                  ))}
+                </ul>
 
-                  <ul className="mt-4 space-y-2">
-                    {exp.bullets.map((b, j) => (
-                      <li
-                        key={j}
-                        className="flex gap-3 text-sm leading-relaxed text-muted"
-                      >
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-grad-3" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {exp.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-md border border-border bg-surface-2 px-2.5 py-1 font-mono text-xs text-muted"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                <ul
+                  className="mt-4 flex flex-wrap gap-2"
+                  aria-label="Technologies used"
+                >
+                  {exp.tech.map((t) => (
+                    <li key={t}>
+                      <Badge variant="accent">{t}</Badge>
+                    </li>
+                  ))}
+                </ul>
+              </HoverRow>
             </Reveal>
-          ))}
-        </div>
-      </div>
+          </li>
+        ))}
+      </ol>
+
+      <a
+        href={resumes[0].href}
+        download
+        className="group mt-12 inline-flex items-center gap-2 font-medium text-foreground hover:text-grad-2"
+      >
+        Download full résumé
+        <ArrowRight className="size-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" />
+      </a>
     </section>
   );
 }

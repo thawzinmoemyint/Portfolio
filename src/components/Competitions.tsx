@@ -1,68 +1,55 @@
-import { Trophy, Medal, ExternalLink } from "lucide-react";
+import { Trophy, Medal } from "lucide-react";
 import { awards } from "@/lib/data";
 import SectionHeading from "./ui/SectionHeading";
+import HoverRow, { RowLink } from "./ui/HoverRow";
 import Reveal from "./ui/Reveal";
 
 const icons = { trophy: Trophy, medal: Medal };
 
 export default function Competitions() {
   return (
-    <section id="awards" className="relative px-6 py-24">
-      <div
-        className="glow left-1/4 top-32 h-[300px] w-[300px] bg-grad-2"
-        aria-hidden
-      />
+    <section
+      id="awards"
+      aria-label="Awards"
+      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-32 lg:scroll-mt-24"
+    >
+      <SectionHeading title="Awards" />
 
-      <div className="relative z-10 mx-auto max-w-6xl">
-        <SectionHeading
-          eyebrow="05 — Awards"
-          title="Competitions & recognition"
-        />
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {awards.map((award, i) => {
-            const Icon = icons[award.icon];
-            return (
-              <Reveal key={award.title} delay={i * 100} className="h-full">
-                <div className="gradient-border group h-full rounded-2xl p-6">
-                  <div className="relative z-10 flex h-full flex-col">
-                    <div className="mb-4 flex items-center justify-between">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-accent text-black">
-                        <Icon size={24} />
+      <ol className="group/list space-y-12">
+        {awards.map((award, i) => {
+          const Icon = icons[award.icon];
+          return (
+            <li key={award.title}>
+              <Reveal delay={i * 60}>
+                <HoverRow
+                  aside={
+                    <span className="inline-flex items-center gap-2">
+                      <Icon className="size-4 text-grad-2" />
+                      {award.year}
+                    </span>
+                  }
+                >
+                  <h3>
+                    {award.href ? (
+                      <RowLink href={award.href}>{award.title}</RowLink>
+                    ) : (
+                      <span className="font-medium leading-tight text-foreground">
+                        {award.title}
                       </span>
-                      <span className="font-mono text-sm text-muted">
-                        {award.year}
-                      </span>
-                    </div>
-
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {award.title}
-                    </h3>
-                    <p className="mt-1 text-sm font-medium text-grad-2">
-                      {award.event}
-                    </p>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-                      {award.description}
-                    </p>
-
-                    {award.href && (
-                      <a
-                        href={award.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground"
-                      >
-                        Learn more
-                        <ExternalLink size={13} />
-                      </a>
                     )}
-                  </div>
-                </div>
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {award.event}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {award.description}
+                  </p>
+                </HoverRow>
               </Reveal>
-            );
-          })}
-        </div>
-      </div>
+            </li>
+          );
+        })}
+      </ol>
     </section>
   );
 }

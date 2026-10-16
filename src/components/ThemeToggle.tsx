@@ -2,6 +2,8 @@
 
 import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 type Theme = "light" | "dark";
 
@@ -50,14 +52,16 @@ export default function ThemeToggle({
   const isDark = theme === "dark";
 
   return (
-    <button
+    <Button
       type="button"
+      variant="ghost"
+      size="icon-lg"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`inline-flex items-center justify-center rounded-md p-2 text-muted transition-colors hover:text-foreground ${className}`}
+      className={cn("text-muted-foreground hover:bg-transparent", className)}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {isDark ? <Sun size={20} /> : <Moon size={20} />}
-    </button>
+      {isDark ? <Sun className="size-5" /> : <Moon className="size-5" />}
+    </Button>
   );
 }

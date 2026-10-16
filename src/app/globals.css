@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Theme is driven by <html data-theme>, not a .dark class */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 :root,
 [data-theme="dark"] {
@@ -7,12 +12,16 @@
   --surface-2: #16161a;
   --border: #1f1f23;
   --foreground: #ededed;
-  --muted: #a1a1aa;
+  --muted-foreground: #a1a1aa;
 
-  /* Gradient accent stops: orange -> amber -> yellow */
-  --grad-1: #f97316;
-  --grad-2: #f59e0b;
-  --grad-3: #fde047;
+  /* Gradient accent stops: cyan -> blue -> violet */
+  --grad-1: #22d3ee;
+  --grad-2: #60a5fa;
+  --grad-3: #a78bfa;
+  /* text on top of the gradient */
+  --primary-foreground: #000000;
+
+  --destructive: #f87171;
 }
 
 [data-theme="light"] {
@@ -21,12 +30,32 @@
   --surface-2: #ececef;
   --border: #e2e2e6;
   --foreground: #0a0a0a;
-  --muted: #52525b;
+  --muted-foreground: #52525b;
 
-  /* Slightly deeper stops so the yellow gradient keeps contrast on white */
-  --grad-1: #ea580c;
-  --grad-2: #d97706;
-  --grad-3: #ca8a04;
+  /* Deeper stops so the gradient keeps contrast on white */
+  --grad-1: #0e7490;
+  --grad-2: #1d4ed8;
+  --grad-3: #6d28d9;
+  --primary-foreground: #ffffff;
+
+  --destructive: #dc2626;
+}
+
+/* shadcn/ui tokens, mapped onto the palette above */
+:root {
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+  --primary: var(--grad-2);
+  --secondary: var(--surface-2);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--surface-2);
+  --accent: var(--surface-2);
+  --accent-foreground: var(--foreground);
+  --input: var(--border);
+  --ring: var(--grad-2);
+  --radius: 0.75rem;
 }
 
 @theme inline {
@@ -35,34 +64,41 @@
   --color-surface-2: var(--surface-2);
   --color-border: var(--border);
   --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
   --color-grad-1: var(--grad-1);
   --color-grad-2: var(--grad-2);
   --color-grad-3: var(--grad-3);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-* {
-  border-color: var(--border);
+  --font-heading: var(--font-geist-sans);
 }
 
 html {
   scroll-behavior: smooth;
-  /* offset for the sticky navbar when jumping to anchors */
-  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 /* ---- Reusable gradient utilities ---- */
 
-.text-gradient {
+@utility text-gradient {
   background-image: linear-gradient(
     100deg,
     var(--grad-1),
@@ -74,50 +110,13 @@ body {
   color: transparent;
 }
 
-.bg-gradient-accent {
+@utility bg-gradient-accent {
   background-image: linear-gradient(
     100deg,
     var(--grad-1),
     var(--grad-2),
     var(--grad-3)
   );
-}
-
-/* gradient outline via padding trick */
-.gradient-border {
-  position: relative;
-  background: var(--surface);
-  border: 1px solid transparent;
-  background-clip: padding-box;
-}
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(120deg, var(--grad-1), var(--grad-3));
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-.gradient-border:hover::before {
-  opacity: 1;
-}
-
-/* soft radial glow used behind hero / section accents */
-.glow {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(90px);
-  opacity: 0.28;
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* ---- Scroll reveal (used by ui/Reveal) ---- */
@@ -159,4 +158,16 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #26262c;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
 }

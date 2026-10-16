@@ -80,7 +80,7 @@ export const experiences: Experience[] = [
     tech: ["NestJS", "Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "Railway"],
   },
   {
-    role: "Research Intern",
+    role: "Research Assistant Intern",
     company: "Neuroscience Center for Research and Innovation (NX)",
     period: "Jun 2025 – Jul 2025",
     location: "Bangkok, Thailand",
