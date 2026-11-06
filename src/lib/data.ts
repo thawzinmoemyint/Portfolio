@@ -5,12 +5,14 @@ export const siteUrl = "https://thawzinmoemyint.dev";
 
 export const profile = {
   name: "Thaw Zin Moe Myint",
-  title: "Full-Stack & AI/ML Engineer",
+  title: "Software & AI/ML Engineer",
   tagline:
-    "I build responsive, production-grade web products and intelligent systems — from type-safe full-stack apps to award-winning computer vision models.",
+    "I enjoy creating efficient and scalable solutions, and I love diving into data to uncover meaningful insights.",
   location: "Bangkok, Thailand",
+  openToLocations: "Open to Vietnam & Singapore",
+  workModes: "Remote, hybrid or on-site",
   email: "thawzinmoemyint.dev@gmail.com",
-  availability: "Open to Software Engineering & AI/ML roles",
+  availability: "Open to Software Engineer, AI Engineer or ML Engineer roles",
 };
 
 export const socials = {
@@ -33,9 +35,8 @@ export const resumes = [
 
 export const about = {
   paragraphs: [
-    "I'm a Computer Science undergraduate at King Mongkut's University of Technology Thonburi (KMUTT), graduating December 2026. I work across two closely related crafts: shipping full-stack web applications and building machine-learning systems.",
-    "On the engineering side, I've delivered commercial web apps end-to-end as a freelancer and built a multi-property hotel platform during my internship at Doodle. On the AI side, I won an international AI hackathon with a real-time computer-vision system.",
-    "I care about type-safe, well-architected code, measurable model performance, and interfaces that feel effortless.",
+    "I study Computer Science at King Mongkut's University of Technology Thonburi (KMUTT) and graduate in December 2026. Most of my work sits where software engineering meets data and machine learning.",
+    " I've delivered commercial web apps end-to-end as a freelancer and built a multi-property hotel platform during my internship at Doodle. For my capstone I built SmartFin, a Flutter + Go app that reads Thai bank slips with Gemini Vision and answers spending questions with an AI coach. I also won an international AI hackathon with a real-time computer-vision system.",
   ],
   education: {
     school: "King Mongkut's University of Technology Thonburi",
@@ -118,12 +119,23 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "SmartFin",
+    tagline: "Automatic Expense Tracking Mobile App · Capstone Project",
+    description:
+      "Built SmartFin, a Flutter + Go app that scans Thai bank slips with Gemini Vision and uses an agentic AI coach to answer spending questions from the user's own data.",
+    tags: ["AI/ML", "Mobile"],
+    tech: ["Flutter", "Go", "Docker", "Gemini Vision", "Gemini", "Google Cloud Run", "MongoDB Atlas", "Agentic RAG"],
+    links: [
+      {label: "GitHub", href: "https://github.com/SmartFin-App/smartfin" },
+    ],
+  },
+  {
     title: "God View AI",
     tagline: "Real-time patient monitoring · Hackathon Winner",
     description:
-      "Award-winning real-time patient monitoring prototype. Implemented YOLOv11 for high-accuracy keypoint detection and integrated the Telegram API for instant caregiver alerts.",
+      "Award-winning real-time patient monitoring prototype. Implemented YOLOv11 for high-accuracy keypoint detection and integrated the Telegram Bot API for instant caregiver alerts.",
     tags: ["AI/ML"],
-    tech: ["Python", "PyTorch", "YOLOv11", "Telegram API"],
+    tech: ["Python", "FastAPI", "YOLOv11", "Telegram Bot API"],
     highlight: "🏆 1st Place — International AI Hackathon 2025",
     links: [
       { label: "Press Release", href: "https://sit.kmutt.ac.th/ai-hackathon-2025/" },
@@ -203,11 +215,11 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     category: "Languages",
-    skills: ["TypeScript", "JavaScript", "Python", "Java", "C++", "SQL", "Dart"],
+    skills: ["TypeScript", "JavaScript", "Python", "Java", "C++", "SQL", "Dart", "Go"],
   },
   {
     category: "Web & Frameworks",
-    skills: ["React.js", "Next.js", "NestJS", "Express.js", "Hono", "TailwindCSS", "Flutter"],
+    skills: ["React.js", "Next.js", "NestJS", "Express.js", "Hono", "TailwindCSS", "Flutter", "Strapi", "FastAPI", "Node.js", "Vite", "Turborepo", "GoFiber"],
   },
   {
     category: "AI / ML",
@@ -219,6 +231,9 @@ export const skillGroups: SkillGroup[] = [
       "Optuna",
       "Computer Vision",
       "Transformers",
+      "YOLOv11",
+      "OpenCV",
+      "Agentic RAG",
     ],
   },
   {
@@ -227,7 +242,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: "Infrastructure",
-    skills: ["Docker", "Nginx", "Linux", "Vercel", "Railway", "Supabase", "PostgreSQL"],
+    skills: ["Docker", "Nginx", "Linux", "Vercel", "Railway", "Supabase", "PostgreSQL", "Google Cloud Run"],
   },
 ];
 

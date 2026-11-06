@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FileText, MapPin } from "lucide-react";
+import { Briefcase, FileText, MapPin } from "lucide-react";
 import { navLinks, profile, resumes } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -54,9 +54,18 @@ export default function Sidebar() {
             </span>
             {profile.availability}
           </p>
+          <p className="flex items-start gap-2">
+            <MapPin className="mt-0.5 size-3.5 shrink-0" />
+            <span>
+              {profile.location}
+              <span aria-hidden> · </span>
+              <span className="sr-only">. </span>
+              {profile.openToLocations}
+            </span>
+          </p>
           <p className="flex items-center gap-2">
-            <MapPin className="size-3.5" />
-            {profile.location}
+            <Briefcase className="size-3.5 shrink-0" />
+            {profile.workModes}
           </p>
         </div>
 
