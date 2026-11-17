@@ -126,7 +126,8 @@ export const projects: Project[] = [
     tags: ["AI/ML", "Mobile"],
     tech: ["Flutter", "Go", "Docker", "Gemini Vision", "Gemini", "Google Cloud Run", "MongoDB Atlas", "Agentic RAG"],
     links: [
-      {label: "GitHub", href: "https://github.com/SmartFin-App/smartfin" },
+      { label: "GitHub", href: "https://github.com/SmartFin-App/smartfin" },
+      { label: "Project Page", href: "https://seniorproject.sit.kmutt.ac.th/showproject/CS66-BU77" },
     ],
   },
   {
@@ -138,8 +139,8 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "YOLOv11", "Telegram Bot API"],
     highlight: "🏆 1st Place — International AI Hackathon 2025",
     links: [
+      { label: "GitHub", href: "https://github.com/thawzinmoemyint/GodViewAI" },
       { label: "Press Release", href: "https://sit.kmutt.ac.th/ai-hackathon-2025/" },
-      {label: "GitHub", href: "https://github.com/thawzinmoemyint/GodViewAI" },
     ],
   },
   {
@@ -154,6 +155,19 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/thawzinmoemyint/image-captioning-project" },
     ],
   },
+  
+  {
+    title: "Bend It Right",
+    tagline: "AI workout form monitoring",
+    description:
+      "Real-time AI workout monitoring system using a fine-tuned YOLOv11 pose model. Curated and trained on custom annotated datasets to ensure high accuracy in pose estimation.",
+    tags: ["AI/ML"],
+    tech: ["Python", "PyTorch", "YOLOv11", "Tkinter"],
+    links: [
+      { label: "Live Demo", href: "https://thompsonmoe-bend-it-right.static.hf.space/index.html" },
+      { label: "GitHub", href: "https://github.com/thawzinmoemyint/Bend-It-Right" },
+    ],
+  },
   {
     title: "House Price Prediction",
     tagline: "End-to-end ML pipeline",
@@ -164,22 +178,12 @@ export const projects: Project[] = [
     links: [{ label: "GitHub", href: "https://github.com/thawzinmoemyint/Advanced-Regression-House-Prices" }],
   },
   {
-    title: "Bend It Right",
-    tagline: "AI workout form monitoring",
-    description:
-      "Real-time AI workout monitoring system using a fine-tuned YOLOv11 pose model. Curated and trained on custom annotated datasets to ensure high accuracy in pose estimation.",
-    tags: ["AI/ML"],
-    tech: ["Python", "PyTorch", "YOLOv11", "Tkinter"],
-    links: [{ label: "GitHub", href: "https://github.com/thawzinmoemyint/Bend-It-Right" }],
-  },
-  {
     title: "Doodle Education",
     tagline: "Education platform + headless CMS · Freelance",
     description:
       "Public education platform for study programmes (K-12, GED, vocational) and language courses across Myanmar & Thailand, backed by a headless CMS. Built a GED mock-test engine that grades server-side and hides answers from clients, location-aware programme filtering, and CMS-driven copy with graceful fallbacks when the CMS is down.",
     tags: ["Web"],
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Strapi", "PostgreSQL", "Vercel", "Railway"],
-    highlight: "🌐 Live client project — in production",
     links: [{ label: "Live Site", href: "https://doodle.tech/" }],
   },
   {
