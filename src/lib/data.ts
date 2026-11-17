@@ -143,6 +143,18 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "Vision-GPT2 Captioner",
+    tagline: "Image captioning · ViT + GPT-2",
+    description:
+      "Image captioning model that pairs a Vision Transformer encoder with a pretrained GPT-2 decoder: ViT turns the image into a sequence of embeddings and GPT-2 generates the caption from them. Deployed as a Gradio app on Hugging Face Spaces.",
+    tags: ["AI/ML"],
+    tech: ["Python", "PyTorch", "Vision Transformer", "GPT-2", "timm", "Hugging Face Transformers", "Gradio"],
+    links: [
+      { label: "Live Demo", href: "https://thompsonmoe-vision-gpt2-captioner.hf.space" },
+      { label: "GitHub", href: "https://github.com/thawzinmoemyint/image-captioning-project" },
+    ],
+  },
+  {
     title: "House Price Prediction",
     tagline: "End-to-end ML pipeline",
     description:
